@@ -1,0 +1,54 @@
+TelemetryModule DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+
+-- Basic satellite telemetry types
+
+TelemetryFrame ::= SEQUENCE {
+    header      FrameHeader,
+    payload     TelemetryPayload
+}
+
+FrameHeader ::= SEQUENCE {
+    timestamp   TimeStamp,
+    frameType   INTEGER (0..255),
+    frameCount  INTEGER (0..65535)
+}
+
+TimeStamp ::= SEQUENCE {
+    seconds     INTEGER (0..4294967295),  -- Seconds since epoch
+    subseconds  INTEGER (0..1000)         -- Milliseconds
+}
+
+TelemetryPayload ::= CHOICE {
+    housekeeping   [0] IMPLICIT HousekeepingData,
+    science        [1] IMPLICIT ScienceData,
+    commandAck     [2] IMPLICIT CommandAck
+}
+
+HousekeepingData ::= SEQUENCE {
+    voltages    VoltageReadings,
+    temperature SEQUENCE (SIZE(1..8)) OF INTEGER (-100..100),
+    status      BIT STRING (SIZE(8))
+}
+
+VoltageReadings ::= SEQUENCE {
+    mainBus     INTEGER (0..5000),  -- mV
+    payload     INTEGER (0..5000),  -- mV
+    comms       INTEGER (0..5000)   -- mV
+}
+
+ScienceData ::= SEQUENCE {
+    instrumentId    INTEGER (0..255),
+    dataBlocks      SEQUENCE (SIZE(1..4)) OF OCTET STRING (SIZE(1..256))
+}
+
+CommandAck ::= SEQUENCE {
+    commandId   INTEGER (0..65535),
+    status      ENUMERATED {
+                    success(0),
+                    invalidCommand(1),
+                    executionFailed(2),
+                    insufficientPrivileges(3)
+                }
+}
+
+END
