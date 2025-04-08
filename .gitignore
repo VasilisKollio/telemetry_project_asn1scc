@@ -1,2 +1,4 @@
 generated/
 telemetry_program
+id_*
+*.pem
