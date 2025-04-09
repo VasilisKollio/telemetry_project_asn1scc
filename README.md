@@ -122,7 +122,7 @@ Run with: ./telemetry_program
 ./telemetry_program
 ```
 
-**Sample Program Output:**
+**Expected Program Output:**
 ```
 ===== Telemetry Decoder Test =====
 Test Data (20 bytes):
