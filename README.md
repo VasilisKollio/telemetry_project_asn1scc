@@ -137,20 +137,28 @@ Run with: ./telemetry_program
 ./memory_benchmark
 ```
 
-**Expected Program Output:**
+** Main Telemetry Program Output:**
 ```
+===== Minimal Test =====
+Status field type information:
+Minimal encode successful: 15 bytes
+Minimal decode failed: error 73
 ===== Telemetry Decoder Test =====
-Test Data (20 bytes):
-00 00 00 01 03 e8 00 00
-01 80 13 88 0d ac 09 c4
-01 01 2c 80
+Raw test data as seen by decoder:
+00 00 00 01 fa 00 00 00
+49 c4 36 b1 38 82 0a Test Data (15 bytes):
+00 00 00 01 fa 00 00 00
+49 c4 36 b1 38 82 0a
 
-=== DECODE SUCCESS ===
-Bytes processed: 15/20
-Frame count: 0
-Payload type: 1
-UNEXPECTED payload type! Check CHOICE tags.
-First payload byte: 0x00
+DECODE FAILED (Error: 73)
+Bytes processed: 15/15
+
+===== Generated Test Vector Test =====
+Encoding successful! Generated 15 bytes
+Generated PER-encoded data (header-only):
+00 00 00 01 fa 00 00 00
+40 00 00 00 00 01 90
+Decoding failed with error: 73
 ```
 
 ## Volume Mount Structure
