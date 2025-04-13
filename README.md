@@ -82,21 +82,37 @@ asn1scc          # Docker image name
 
 ```bash
 cd /root/telemetry_project_asn1scc
-./build.sh
+./build_fixed.sh
 ```
 
 **Expected Build Output:**
 ```
-=== Cleaning and setting up directories ===
-=== Compiling ASN.1 with T_ prefix ===
-=== Verifying generated files ===
-=== Copying runtime extensions ===
-'/root/telemetry_project_asn1scc/src/asn1crt_mempool.c' -> '/root/.../generated/asn1crt_mempool.c'
-[... 3 more files copied ...]
-=== Compiling program ===
+Checking directories exist..
+total 120
+drwxr-xr-x 2 root root  4096 Apr 13 20:21 .
+drwxrwxr-x 7 1000 1000  4096 Apr 13 20:29 ..
+-rw-r--r-- 1 root root  2338 Apr 13 20:21 asn1crt.c
+-rw-r--r-- 1 root root  6655 Apr 13 20:21 asn1crt.h
+...
+total 44
+drwxrwxr-x 2 1000 1000 4096 Apr  8 12:16 .
+drwxrwxr-x 7 1000 1000 4096 Apr 13 20:29 ..
+-rw-rw-r-- 1 1000 1000  456 Apr  8 12:16 asn1crt_mempool.c
+-rw-rw-r-- 1 1000 1000  637 Apr  8 12:16 asn1crt_mempool.h
+...
+total 32
+drwxrwxr-x 2 1000 1000 4096 Apr 13 20:10 .
+drwxrwxr-x 7 1000 1000 4096 Apr 13 20:29 ..
+-rw-r--r-- 1 root root 6305 Apr 13 20:10 memory_benchmark.c
+-rw-r--r-- 1 root root 7594 Apr  9 16:30 test_optimized_decoder.c
+-rw-rw-r-- 1 1000 1000 6018 Apr  9 17:44 test_optimized_decoders.c
+Compiling main program...
+Main program compilation successful!
+Compiling memory benchmark...
+Memory benchmark compilation successful!
 === BUILD SUCCESSFUL ===
-Type prefixes are active (T_ prefix for types)
-Run with: ./telemetry_program
+Run main program with: ./telemetry_program
+Run memory benchmark with: ./memory_benchmark [iterations]
 ```
 
 **Build Process Steps:**
@@ -116,10 +132,15 @@ Run with: ./telemetry_program
    - Uses GCC with:
      -Wall -Wextra -I/generated -I/src -lm
 
-### 3. Running the Program
+### 3. Running the Main Program
 
 ```bash
 ./telemetry_program
+```
+
+### 4. Running the memory benchmark test:
+```
+./memory_benchmark
 ```
 
 **Expected Program Output:**
