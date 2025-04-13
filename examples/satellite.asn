@@ -27,7 +27,7 @@ TelemetryPayload ::= CHOICE {
 HousekeepingData ::= SEQUENCE {
     voltages    VoltageReadings,
     temperature SEQUENCE (SIZE(1..8)) OF INTEGER (-100..100),
-    status      BIT STRING (SIZE(8))
+    status      INTEGER (0..255)
 }
 
 VoltageReadings ::= SEQUENCE {

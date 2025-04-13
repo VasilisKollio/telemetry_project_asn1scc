@@ -46,12 +46,13 @@ gcc -Wall -Wextra \
     "${GENERATED_DIR}/asn1crt_mempool.c" \
     "${GENERATED_DIR}/asn1crt_stream.c" \
     "${TESTS_DIR}/test_optimized_decoders.c" \
-    -o "${PROJECT_DIR}/telemetry_program" \
+    -o "${PROJECT_DIR}/telemetry_program" \  
     -lm || {
-    echo "Compilation failed"
+    echo "Main Compilation failed"
     exit 1
 }
 
 echo "=== BUILD SUCCESSFUL ==="
 echo "Type prefixes are active (T_ prefix for types)"
-echo "Run with: ./telemetry_program"
+echo "Run main program with: ./telemetry_program"
+
