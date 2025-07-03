@@ -1,0 +1,28 @@
+ASN1SCC Telemetry Optimization Build Information
+================================================
+Build Date: Thu Jul  3 17:19:37 UTC 2025
+Build Host: 960cdc28c577
+Compiler: gcc (GCC) 10.3.1 20210520 (for GNAT Community 2021 20210519)
+ASN1SCC Version: asn1scc version 4.5.2.4
+Project Directory: /root/telemetry_project_asn1scc
+Optimization Level: -O2
+Target Architecture: native
+
+Generated Files:
+total 120
+drwxr-xr-x 2 root root  4096 Jul  3 17:19 .
+drwxrwxr-x 7 1000 1000  4096 Jul  3 17:19 ..
+-rw-r--r-- 1 root root  2338 Jul  3 17:19 asn1crt.c
+-rw-r--r-- 1 root root  6655 Jul  3 17:19 asn1crt.h
+-rw-r--r-- 1 root root 25003 Jul  3 17:19 asn1crt_encoding.c
+-rw-r--r-- 1 root root  3676 Jul  3 17:19 asn1crt_encoding.h
+-rw-r--r-- 1 root root   131 Jul  3 17:19 asn1crt_encoding_uper.c
+-rw-r--r-- 1 root root   197 Jul  3 17:19 asn1crt_encoding_uper.h
+-rw-r--r-- 1 root root   456 Jul  3 17:19 asn1crt_mempool.c
+-rw-r--r-- 1 root root   637 Jul  3 17:19 asn1crt_mempool.h
+-rw-r--r-- 1 root root  1830 Jul  3 17:19 asn1crt_stream.c
+-rw-r--r-- 1 root root  1342 Jul  3 17:19 asn1crt_stream.h
+-rw-r--r-- 1 root root 26251 Jul  3 17:19 satellite.c
+-rw-r--r-- 1 root root 15005 Jul  3 17:19 satellite.h
+
+Build Status: SUCCESS

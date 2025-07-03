@@ -19,9 +19,9 @@ TimeStamp ::= SEQUENCE {
 }
 
 TelemetryPayload ::= CHOICE {
-    housekeeping   [0] IMPLICIT HousekeepingData,
-    science        [1] IMPLICIT ScienceData,
-    commandAck     [2] IMPLICIT CommandAck
+    housekeeping    HousekeepingData,
+    science         ScienceData,
+    commandAck      CommandAck
 }
 
 HousekeepingData ::= SEQUENCE {
